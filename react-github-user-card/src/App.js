@@ -5,6 +5,9 @@ import axios from 'axios';
 import MyCard from './components/MyCard';
 import Test from './components/Test';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { CardColumns } from 'react-bootstrap';
+
 class App extends React.Component {
 constructor() {
   super();
@@ -31,7 +34,9 @@ componentDidMount(){
     .catch(err => console.log('error'));
   }
 
-
+  componentDidUpdate(){
+    
+  }
 
 render(){
   return (
@@ -49,8 +54,9 @@ render(){
         following = {this.state.mycard.following}
         />
       </div>
+      <h1> Followers: </h1>
       </div>
-      <div>
+      <CardColumns>
       {this.state.followers.map(follower =>{
       return (
              <Test
@@ -60,7 +66,7 @@ render(){
              />
       )
       })}
-      </div>
+      </CardColumns>
   </div>
   )
 }
